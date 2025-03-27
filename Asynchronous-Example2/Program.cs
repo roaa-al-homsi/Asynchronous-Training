@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Asynchronous_Example2
@@ -9,36 +8,31 @@ namespace Asynchronous_Example2
     {
         public static async Task DownloadAndPrintAsync(string url)
         {
+            //using statement ensure that the web client is disposed of properly. 
             string content;
             using (WebClient webClient = new WebClient())
             {
+                //simulate some work by adding a delay..
                 await Task.Delay(100);
-                content = webClient.DownloadDataTaskAsync(url);
+                //Download content of the web page as asynchronous..
+                content = await webClient.DownloadStringTaskAsync(url);
 
             }
             Console.WriteLine($"{url}: {content.Length} download characters");
         }
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
 
-            Thread thread1 = new Thread(() => DownloadAndPrintAsync("https://programmingadvices.com/"));
-            thread1.Start();
-            Console.WriteLine("Thread1 is start...");
+            Task task1 = DownloadAndPrintAsync("https://www.typing.com/student");
+            Console.WriteLine("Task1 is start...");
 
-            Thread thread2 = new Thread(() => DownloadAndPrintAsync("https://www.typing.com/student"));
-            thread2.Start();
-            Console.WriteLine("Thread2 is start...");
+            Task task2 = DownloadAndPrintAsync("https://svuis.svuonline.org/SVUIS/index.php");
+            Console.WriteLine("Task2 is start...");
 
+            //Wait for all tasks to complete.
+            await Task.WhenAll(task1, task2);
 
-            Thread thread3 = new Thread(() => DownloadAndPrintAsync("https://svuis.svuonline.org/SVUIS/index.php"));
-            thread3.Start();
-            Console.WriteLine("Thread3 is start...");
-
-            thread1.Join();
-            thread2.Join();
-            thread3.Join();
-
-            Console.WriteLine("All of threads are done... ");
+            Console.WriteLine("All of tasks are done... ");
             Console.ReadKey();
 
         }
