@@ -1,0 +1,7 @@
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\obj\Debug\Asynchronous-Example1.csproj.AssemblyReference.cache
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\obj\Debug\Asynchronous-Example1.csproj.CoreCompileInputs.cache
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\bin\Debug\Asynchronous-Example1.exe.config
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\bin\Debug\Asynchronous-Example1.exe
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\bin\Debug\Asynchronous-Example1.pdb
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\obj\Debug\Asynchronous-Example1.exe
+C:\Users\Ruaa\source\repos\Asynchronous-Example1\obj\Debug\Asynchronous-Example1.pdb
